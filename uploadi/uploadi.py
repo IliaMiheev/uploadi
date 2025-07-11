@@ -23,15 +23,23 @@ def uploadi():
         print('Надо выбрать один флаг. -t или -p')
         return
 
-    name_project = args.name_project
+    # Проверяем, есть ли setup.py
+    listdir = os.listdir()
+    if 'setup.py' not in listdir:
+        print('Отсутствует файл загрузки setup.py')
+        return
 
+    # Определяем имя проекта и комманду выгрузки
+    name_project = args.name_project
+    command = ''
+    if args.t:
+        command = 'twine upload --repository-url https://test.pypi.org/legacy/ dist/*'
+    else:
+        command = 'twine upload dist/*'
 
     # Выполняем выгрузку
     os.system('python setup.py sdist bdist_wheel')
-    if args.t:
-        os.system('twine upload --repository-url https://test.pypi.org/legacy/ dist/*')
-    else:
-        os.system('twine upload dist/*')
+    os.system(command)
     os.system(f'rmdir /s /q build dist {name_project}.egg-info')
 
 
