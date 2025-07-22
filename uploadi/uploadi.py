@@ -30,7 +30,7 @@ def uploadi():
         return
 
     # Определяем имя проекта и комманду выгрузки
-    name_project = args.name_project
+    name_project = args.name_project.replace('-', '_')
     command = ''
     if args.t:
         command = 'twine upload --repository-url https://test.pypi.org/legacy/ dist/*'
