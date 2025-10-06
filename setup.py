@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='uploadi',
-    version='1.0.3',
+    version='2.0.0',
     description='Приложение для загрузки проектов python',
     long_description=open('./README.md', encoding='utf8').read(),
     long_description_content_type='text/markdown',
