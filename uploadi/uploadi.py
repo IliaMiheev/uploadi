@@ -41,7 +41,7 @@ def uploadi():
     if args.t:
         command = 'twine upload --repository-url https://test.pypi.org/legacy/ dist/*'
     else:
-        ask = input('Вы уверены, что хотите выгрузить на PyPI? (y/n): ')
+        ask = input('Вы уверены, что хотите выгрузить проект на PyPI? (y/n): ')
         if ask.lower() != 'y':
             print('Выгрузка отменена.')
             return
